@@ -1,4 +1,3 @@
-#include "hwlib.hpp"
 #include "note_fileprint.hpp"
 #include "fur_elise.hpp"
 #include "rtttl_player.hpp"
@@ -13,9 +12,6 @@ const char takeonme[]     = "rock:d=4,o=6,b=40:32g5,32g5,32g5,16d#5,16c5,16f5,16
 int main( void ){	
    
    auto p = note_fileprint();
-   hwlib::wait_ms( 10 );
-   
-   HWLIB_TRACE;
    
    if( 0 ){
       auto fe = fur_elise();

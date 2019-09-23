@@ -1,0 +1,25 @@
+gcc := g++ -std=c++17
+ln := g++ -std=c++17
+rm := rm -f
+
+.PHONEY: bouwen schoonmaken melody.cpp
+
+melody.cpp: bouwen
+	./main.exe
+
+bouwen: main.exe
+
+schoonmaken:
+	$(rm) main.exe generator.o note_fileprint.o rtttl_player.o
+
+main.exe: generator.o note_fileprint.o rtttl_player.o
+	$(ln) generator.o note_fileprint.o rtttl_player.o -o main.exe
+
+generator.o: generator.cpp note_fileprint.hpp melody.hpp rtttl_player.hpp fur_elise.hpp note_player.hpp note.hpp
+	$(gcc) -c generator.cpp -o generator.o
+
+note_fileprint.o: note_fileprint.cpp note_fileprint.hpp note_player.hpp note.hpp
+	$(gcc) -c note_fileprint.cpp -o note_fileprint.o
+
+rtttl_player.o: rtttl_player.cpp rtttl_player.hpp note_player.hpp note.hpp
+	$(gcc) -c rtttl_player.cpp -o rtttl_player.o

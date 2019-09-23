@@ -5,7 +5,7 @@
 
 // ===========================================================================
 //
-// simple note player for a speaker connected to a GPIO pin
+// simple note player that prints the notes to the terminal
 //
 // ===========================================================================
 
