@@ -2,18 +2,19 @@ gcc := g++ -std=c++17
 ln := g++ -std=c++17
 rm := rm -f
 
-.PHONEY: bouwen schoonmaken melody.cpp
+.PHONEY: bouwen schoonmaken delmelody
 
-melody.cpp: bouwen
-	./main.exe
+delmelody:
+	$(rm) melody.cpp
 
-bouwen: main.exe
+bouwen: generator.exe
+	./generator.exe
 
 schoonmaken:
-	$(rm) main.exe generator.o note_fileprint.o rtttl_player.o
+	$(rm) generator.exe generator.o rtttl_player.o note_fileprint.o
 
-main.exe: generator.o note_fileprint.o rtttl_player.o
-	$(ln) generator.o note_fileprint.o rtttl_player.o -o main.exe
+generator.exe: generator.o note_fileprint.o rtttl_player.o
+	$(ln) generator.o note_fileprint.o rtttl_player.o -o generator.exe
 
 generator.o: generator.cpp note_fileprint.hpp melody.hpp rtttl_player.hpp fur_elise.hpp note_player.hpp note.hpp
 	$(gcc) -c generator.cpp -o generator.o
