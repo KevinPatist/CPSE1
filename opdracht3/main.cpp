@@ -11,7 +11,7 @@ int main() {
    auto oled = hwlib::glcd_oled( i2c_bus );  
 
    auto midpoint = hwlib::xy(64, 32);
-   auto clock = customClock(30, 15, 27, midpoint, sinusses, cosinusses);
+   auto clock = customClock(30, 15, 27, midpoint, sinusses, cosinusses, due::pins::d7, due::pins::d6);
 
    clock.clockLoop(oled);
 }

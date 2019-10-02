@@ -10,16 +10,20 @@ private:
     hwlib::circle clockBase;
     const sin_lookup & sines;
     const cos_lookup & cosines;
+    due::pin_in hourButton;
+    due::pin_in minuteButton;
     arm hourArm;
     arm minuteArm;
 
 public:
-    customClock( int clockradius, int arm1length, int arm2length, hwlib::xy start, const sin_lookup &sines, const cos_lookup &cosines ):
+    customClock( int clockradius, int arm1length, int arm2length, hwlib::xy start, const sin_lookup &sines, const cos_lookup &cosines, due::pins hourbutton, due::pins minutebutton ):
         drawable( start ),
         radius( clockradius ),
         clockBase( hwlib::circle(start, 30) ),
         sines( sines ),
         cosines( cosines ),
+        hourButton( due::pin_in(hourbutton) ),
+        minuteButton( due::pin_in(minutebutton) ),
         hourArm( arm( arm1length, 5, start, sines, cosines ) ),
         minuteArm( arm( arm2length, 1, start, sines, cosines ) )
     {};

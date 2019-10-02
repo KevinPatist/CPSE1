@@ -23,6 +23,18 @@ void customClock::draw( hwlib::window &w) {
 void customClock::clockLoop(hwlib::window &w) {
     uint_fast64_t previousTime = hwlib::now_us();
     for(;;) {
+        hourButton.refresh();
+        minuteButton.refresh();
+        if(hourButton.read()){
+            time += 60;
+            hourArm.increase();
+        };
+    
+        if(minuteButton.read()){
+            time++;
+            minuteArm.increase();
+        };
+
         if(hwlib::now_us() >= previousTime+60000000) {
             previousTime = hwlib::now_us();
             time++;
