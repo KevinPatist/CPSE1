@@ -40,21 +40,21 @@ decompress:
     ldrb r7, [r5]     //aantal te vervangen
     sub  r7, #'0'
     mov  r3, #0       //aantal extra verplaatste karakters
-    ldrb r0, [r5, r6]
-    strb r0, [r5, #2]
-    sub  r7, #1
-    sub  r6, #1
-    ldrb r0, [r5, r6]
-    strb r0, [r5, #1]
-    sub  r7, #1
-    sub  r6, #1
-    ldrb r0, [r5, r6]
-    strb r0, [r5]
-    sub  r7, #1
-    sub  r6, #1
-    add  r7, #0
-    bgt  decompressloop
-    b    decompressend
+    ldrb r0, [r5, r6] //   
+    strb r0, [r5, #2] // 
+    sub  r7, #1       // 
+    sub  r6, #1       // 
+    ldrb r0, [r5, r6] // 
+    strb r0, [r5, #1] // Het decoderen van de eerste drie karakters
+    sub  r7, #1       // dit doe ik hier omdat ik hiervoor nog niks
+    sub  r6, #1       // met aparte buffer functies hoef te doen
+    ldrb r0, [r5, r6] // 
+    strb r0, [r5]     // 
+    sub  r7, #1       // 
+    sub  r6, #1       // 
+    add  r7, #0       // 
+    bgt  decompressloop // als er meer dan 3 karakters moeten worden geadd de loop in
+    b    decompressend 
 decompressloop:
     add  r7, r7, #0
     beq  decompressend
