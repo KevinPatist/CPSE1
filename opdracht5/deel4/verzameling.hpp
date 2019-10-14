@@ -43,6 +43,20 @@ public:
         return false;
     }
 
+    T max(){
+        if(filled == 1){
+            return set[0];
+        } else {
+            T maximum = set[0];
+            for(int check = 1; check<filled; check++){
+                if(set[check] > maximum) {
+                    maximum = set[check];
+                }
+            }
+            return maximum;
+        }
+    }
+
     friend std::ostream & operator<<( std::ostream & lhs, const verzameling & rhs ){
         for(int pos = 0; pos<rhs.filled; pos++){
             lhs << rhs.set[pos];
@@ -54,4 +68,24 @@ public:
     } 
 };
 
+template<int N>
+bool operator>(std::array<char, N> &lhs, std::array<char, N> &rhs){
+    char left = 0;
+    char right = 0;
+    for( char i : lhs ){
+        left += i;
+    }
+    for( char i : rhs ){
+        right += i;
+    }
+    return left > right;
+}
+
+//template<int N>
+std::ostream & operator<<( std::ostream &lhs, const std::array<char, 3> &rhs){
+    for(int pos = 0; pos<3; pos++){
+        lhs << rhs[pos];
+    }
+    return lhs;
+}
 #endif //VERZAMELING_HPP

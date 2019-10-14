@@ -51,12 +51,11 @@ public:
     }
 
     friend std::ostream & operator<<( std::ostream & lhs, const intverzameling & rhs ){
-        for(int pos = 0; pos<rhs.filled-1; pos++){
+        for(int pos = 0; pos<rhs.filled; pos++){
             lhs << rhs.set[pos];
-            lhs << ",";
-        }
-        if(rhs.filled > 0){
-            lhs << rhs.set[rhs.filled-1];
+            if(pos != rhs.filled-1){
+                lhs << ",";
+            }
         }
         return lhs;
     } 

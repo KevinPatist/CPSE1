@@ -43,6 +43,23 @@ public:
         return false;
     }
 
+    T max(){
+        if(filled == 0){
+            std::cout << "geen waarden in set" << std::endl; 
+            return 0;   
+        } else if(filled == 1){
+            return set[0];
+        } else {
+            T maximum = set[0];
+            for(int check = 1; check<filled; check++){
+                if(set[check] > maximum) {
+                    maximum = set[check];
+                }
+            }
+            return maximum;
+        }
+    }
+
     friend std::ostream & operator<<( std::ostream & lhs, const verzameling & rhs ){
         for(int pos = 0; pos<rhs.filled; pos++){
             lhs << rhs.set[pos];
