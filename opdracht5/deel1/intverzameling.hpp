@@ -10,8 +10,7 @@ protected:
     int filled = 0;
 
 public:
-    intverzameling( int size ):
-        size( size )
+    intverzameling():
     {
         set[0] = 0;  // setting the first item to 0 to init
     }
@@ -32,7 +31,7 @@ public:
         for(int check = 0; check < filled; check++) {
             if(set[check] == item){
                 for(int change = check; change<filled; change++) {
-                    if(change<size-1){
+                    if(change < size-1){
                         set[change] = set[change+1];
                     }
                     filled--;

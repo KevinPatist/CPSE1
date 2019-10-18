@@ -5,14 +5,14 @@
 #include "intverzameling.hpp"
 
 TEST_CASE( "Print de verzameling naar de terminal" ){
-    intverzameling a(3);
+    intverzameling a);
     std::stringstream s;
     s << a;
     REQUIRE( s.str() == "" );     
 }
 
 TEST_CASE( "Add getallen; standaard toevoegen" ){
-    intverzameling a(3);
+    intverzameling a);
     a.add(2);
     a.add(5);
     a.add(7);
@@ -22,7 +22,7 @@ TEST_CASE( "Add getallen; standaard toevoegen" ){
 }
 
 TEST_CASE( "Add getallen; al bestaande waarden" ){
-    intverzameling a(3);
+    intverzameling a);
     a.add(2);
     a.add(5);
     a.add(2);
@@ -32,7 +32,7 @@ TEST_CASE( "Add getallen; al bestaande waarden" ){
 }
 
 TEST_CASE( "remove getallen; bestaande waarden" ){
-    intverzameling a(10);
+    intverzameling a();
     a.add(2);
     a.add(5);
     a.add(7);
@@ -43,7 +43,7 @@ TEST_CASE( "remove getallen; bestaande waarden" ){
 }
 
 TEST_CASE( "remove getallen; niet bestaande waarden" ){
-    intverzameling a(10);
+    intverzameling a();
     a.add(2);
     a.add(5);
     a.add(7);
@@ -54,7 +54,7 @@ TEST_CASE( "remove getallen; niet bestaande waarden" ){
 }
 
 TEST_CASE( "contains getallen; bestaande waarden" ){
-    intverzameling a(10);
+    intverzameling a();
     a.add(2);
     a.add(5);
     a.add(7);
@@ -63,7 +63,7 @@ TEST_CASE( "contains getallen; bestaande waarden" ){
 }
 
 TEST_CASE( "contains getallen; niet bestaande waarden" ){
-    intverzameling a(10);
+    intverzameling a();
     a.add(2);
     a.add(5);
     a.add(7);
